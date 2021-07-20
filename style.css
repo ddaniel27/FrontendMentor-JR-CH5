@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
+:root{
+    --strong-cyan:rgb(38, 192, 171);
+    --very-dark-cyan: rgb(0, 73, 77);
+    --very-dark-grayish-cyan: rgb(94, 122, 125);
+    --dark-grayish-cyan: rgb(127, 156, 159);
+    --light-grayish-cyan: rgb(197, 228, 231);
+    --very-light-grayish-cyan: rgb(244, 250, 250);
+}
+
+*{
+    font-family: 'Space Mono', monospace;
+    margin: 0;
+    padding: 0;
+    outline: none;
+}
+
+body{
+    background-color:var(--light-grayish-cyan);
+    display:grid;
+    grid-template-rows: 2fr 8fr 1fr;
+    height:98vh;
+    justify-items:center;
+}
+
+h3{
+    font-size: 14px;
+    color:var(--very-dark-grayish-cyan);
+}
+input[type="number"]{
+    height: 30px;
+    background-color: var(--very-light-grayish-cyan);
+    border: 2px solid transparent;
+    border-radius: 7px;
+    color: var(--very-dark-cyan);
+    font-size: 18px;
+    font-weight: 700;
+    text-align: right;
+    padding-right: 10px;
+    width:97%;
+}
+
+input[type="number"]:focus{
+    border: 2px solid var(--strong-cyan);
+}
+
+.header{
+    align-self: center;
+    padding: 10px 0;
+}
+
+.container{
+    background-color:white;
+    border-radius: 1.5rem;
+    display:grid;
+    grid-template-rows: 1fr 5fr 1fr 5fr;
+    padding: 3vh 7vw;
+    width: 86%;
+}
+
+.bill label, .numPeople label{
+    position: relative;
+}
+
+.bill label::before, .numPeople label::before{
+    content: "";
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:contain;
+    height:15px;
+    width:8px;
+    position:absolute;
+    top: 27px;
+    left: 10px;
+    z-index:2;
+}
+
+.bill label::before{
+    background-image: url(images/icon-dollar.svg);
+}
+
+.tip{
+    display: grid;
+    grid-template-columns:repeat(2,1fr);
+    grid-template-rows:repeat(4,1fr);
+    justify-items: start;
+    align-items: center;
+
+}
+.tip h3{
+    grid-column: 1/3;
+    grid-row: 1;
+    align-self: end;
+    margin-bottom: 15px;
+}
+
+.tip input[type="radio"]{
+    display: none;
+}
+.tip span{
+    background-color: var(--very-dark-cyan);
+    border-radius: 7px;
+    color:white;
+    cursor: pointer;
+    display: inline-block;
+    font-weight:700;
+    font-size:20px;
+    padding: 7px 145%;
+    margin-left: 4px;
+    width: 10vw;
+    text-align: center;
+    transition: .3s ease-in-out;
+}
+.tip span:hover{
+    background-color: var(--light-grayish-cyan);
+}
+.tip input[type="number"]{
+    border-radius: 7px;
+    height:43px;
+    width: 35vw;
+    margin-left: 4px;
+}
+
+.tip input[type="radio"]:checked + span{
+    background-color: var(--strong-cyan);
+    color: var(--very-dark-cyan);
+}
+.numPeople label::before{
+    background-image: url(images/icon-person.svg);
+}
+
+.total{
+    align-items: center;
+    background-color: var(--very-dark-cyan);
+    border-radius: 7px;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(3,1fr);
+    margin-top: 15px;
+}
+
+.total .total-value{
+    color: var(--strong-cyan);
+    font-size: 30px;
+    font-weight:700;
+    justify-self: end;
+    padding-right: 10%;
+}
+
+.total .total-result{
+    padding-left: 10%;
+    color:white;
+}
+.total-result span{
+    color: var(--dark-grayish-cyan);
+}
+
+.total button{
+    background-color: var(--strong-cyan);
+    border:none;
+    border-radius:7px;
+    color:var(--very-dark-cyan);
+    cursor: pointer;
+    font-size:20px;
+    font-weight:700;
+    grid-column: 1/3;
+    justify-self: center;
+    height:70%;
+    width: 90%;
+    transition: .1s ease-in-out;
+}
+
+.total button:hover{
+    background-color: var(--light-grayish-cyan);
+}
+
+.attribution{
+    align-self: center;
+    font-size:12px;
+}
+.attribution a{
+    color: var(--very-dark-cyan);
+    display: inline-block;
+    transition: 0.3s ease-in-out;
+}
+
+.attribution a:hover{
+    color: var(--strong-cyan);
+    transform: translateY(-5px);
+}
+
+@media screen and (min-width:850px) {
+
+    input[type="number"]{
+        height: 5vh;
+        width: 90%;
+        font-size:22px;
+    }
+    .container{
+        align-items: center;
+        grid-template-rows: repeat(3, 1fr);
+        grid-template-columns: 1fr 1fr;
+        padding: 3vh 5vw;
+        height: 50vh;
+        width: 65vw;
+    }
+    .tip{
+        grid-template-columns: repeat(3,1fr);
+        grid-template-rows: repeat(3,1fr);
+        row-gap: 1vh;
+    }
+    .tip h3{
+        grid-row: 1;
+        grid-column: 1/4;
+    }
+    .tip span{
+        padding: 8px 40%;
+        width: 5vw;
+    }
+    .tip input[type='number']{
+        width: 8vw;
+    }
+    .total{
+        height: 100%;
+        grid-column: 2;
+        grid-row: 1/4;
+        grid-template-rows: repeat(5,1fr);
+    }
+    .total .total-value{
+        font-size: 40px;
+    }
+    .total button{
+        grid-row: 5;
+        margin-bottom: 4vh;
+    }
+    .bill label::before, .numPeople label::before{
+        height:25px;
+        width:17px;
+        position:absolute;
+        top: 34px;
+        left: 10px;
+        z-index:2;
+    }
+}
